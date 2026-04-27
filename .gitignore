@@ -1,0 +1,19 @@
+# binairies
+*.exe
+*.dll
+*.obj
+*.pdb
+*.out
+
+# Visual Studio files
+.vs/
+Debug/
+Release/
+*.user
+*.sln
+*.vcxproj
+*.filters
+
+# trash
+*.log
+imgui.ini
