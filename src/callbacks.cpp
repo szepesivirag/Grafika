@@ -12,7 +12,7 @@ int WINDOW_WIDTH = 1000;
 int WINDOW_HEIGHT = 700;
 
 struct Camera camera;
-struct Action action = {0}; //gombok nullán állnak
+struct Action action = {}; //gombok nullán állnak
 extern GLfloat light_ambient[4];
 
 // Egér mozdulatok detektálása
@@ -53,7 +53,7 @@ void display(GLFWwindow* window)
 	}
 }
 
-void framebuffer_size_callback(GLFWwindow* window, int width, int height)
+void framebuffer_size_callback(GLFWwindow* /*window*/, int width, int height)
 {
 	WINDOW_WIDTH = width;
 	WINDOW_HEIGHT = height;
@@ -62,7 +62,7 @@ void framebuffer_size_callback(GLFWwindow* window, int width, int height)
 }
 
 // EZ VÁLTJA LE A keyboard, keyboardUp ÉS specialFunc-ot
-void key_callback(GLFWwindow* window, int key, int scancode, int input_action, int mods)
+void key_callback(GLFWwindow* window, int key, int /*scancode*/, int input_action, int /*mods*/)
 {
     if (key == GLFW_KEY_ESCAPE && input_action == GLFW_PRESS) {
         glfwSetWindowShouldClose(window, GLFW_TRUE);
@@ -88,7 +88,7 @@ void key_callback(GLFWwindow* window, int key, int scancode, int input_action, i
 }
 
 // EZz váltja le  A mouse  korűbbi rgér fvg-t 
-void mouse_button_callback(GLFWwindow* window, int button, int input_action, int mods)
+void mouse_button_callback(GLFWwindow* window, int button, int input_action, int /*mods*/)
 {
     if (button == GLFW_MOUSE_BUTTON_LEFT) {
         if (input_action == GLFW_PRESS) {
@@ -101,7 +101,7 @@ void mouse_button_callback(GLFWwindow* window, int button, int input_action, int
 }
 
 // Ez váltja A motion fgv-t
-void cursor_position_callback(GLFWwindow* window, double xpos, double ypos)
+void cursor_position_callback(GLFWwindow* /*window*/, double xpos, double ypos)
 {
     if (is_mouse_down) {
         double horizontal = mouse_x - xpos;

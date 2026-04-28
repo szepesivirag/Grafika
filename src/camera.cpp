@@ -15,8 +15,7 @@ double degree_to_radian(double degree)
 	return degree * M_PI / 180.0;
 }
 
-#define falseAABB(x1, x2, z1, z2) (camera->position.z > z1 && camera->position.z < z2) && (camera->position.x < x1 && camera->position.x > x2)
-
+#define falseAABB(x1, x2, z1, z2) ((camera->position.z > z1 && camera->position.z < z2) && (camera->position.x < x1 && camera->position.x > x2))
 //(camera->position.z > 30 && camera->position.z < 100) && (camera->position.x < 120 && camera->position.x > -20)
 
 void can_move(struct Camera* camera)

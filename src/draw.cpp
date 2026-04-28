@@ -36,7 +36,7 @@ void draw_content(World* world)
 
 	glPushMatrix();
 		glTranslatef(world->table.position.x, world->table.position.y, world->table.position.z);
-		GLfloat light_position[] = {0, 100, 150};//, 0};
+		//GLfloat light_position[] = {0, 100, 150};//, 0};
 		GLfloat light_diffuse[] = {0.3, 0.3, 0.3, 0.9};
 		GLfloat light_specular[] = {1.0, 1.0, 1.0, 1.0};
 		GLfloat shinnes [] = {50};
@@ -159,8 +159,8 @@ void draw_walls(Room room) {
 void draw_triangles(const struct Model* model)
 {
 	int i, k;
-	int vertex_index, texture_index, normal_index;
-	double x, y, z, normal_x, normal_y, normal_z, u, v;
+	int vertex_index, normal_index;
+	double x, y, z, normal_x, normal_y, normal_z;
 
 	glBegin(GL_TRIANGLES);
 
@@ -199,7 +199,7 @@ void draw_triangles(const struct Model* model)
 void draw_quads(const struct Model* model)
 {
     int i, k;
-    int vertex_index, texture_index, normal_index;
+    int vertex_index, texture_index;
     double x, y, z, u, v;
 
 	glBegin(GL_QUADS);
