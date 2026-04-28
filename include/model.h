@@ -6,8 +6,8 @@
 #define INCLUDE_MODEL_H
 
 #include <stdio.h>
-#include <GL/glut.h>
-#include "SOIL/SOIL.h"
+#include <GLFW/glfw3.h>
+#include "stb_image.h"
 
 #define TRUE 1
 #define FALSE 0
@@ -79,11 +79,10 @@ typedef struct {
 
 typedef struct {
 	Room room;
-	Object dog;
+	Object table;
 	int helpTexture;
 }World;
 
-World world;
 
 /**
  * Count the tokens in the text.

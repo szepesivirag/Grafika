@@ -17,3 +17,16 @@ Release/
 # trash
 *.log
 imgui.ini
+
+# Ne legyen exe
+*.exe
+
+# Ne legyen freeglut.dll feltöltve
+freeglut.dll
+
+# Ne töltse fel a C++ fordító mappát
+c_sdk_220203/
+
+#.vs code
+.vscode/ 
+

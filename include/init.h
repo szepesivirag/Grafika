@@ -14,6 +14,6 @@ extern GLfloat light_specular[];
 /**
  * Initialize the OpenGL context.
  */
-void init();
+void init(World* world);
 
 #endif /* INCLUDE_INIT_H_ */
