@@ -30,3 +30,8 @@ c_sdk_220203/
 #.vs code
 .vscode/ 
 
+#GLFW
+include/GLFW
+
+#glm
+include/glm
