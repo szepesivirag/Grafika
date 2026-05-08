@@ -59,3 +59,14 @@ A projekt lefordításához és futtatásához használd a mellékelt `Makefile`
 ```bash
 make
 ./Beadando.exe
+
+
+
+
+az assets.zip letöltési helye;
+
+kicsomagolás a projekt gyökerébe;
+
+a modell fájl helye: assets/models/cube.obj;
+
+a program ezt futásidőben tölti be.
