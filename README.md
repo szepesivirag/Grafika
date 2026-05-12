@@ -20,7 +20,7 @@ A fő attrakció a szobában egy lebegő asztal.
 | :--- | :--- |
 | **W, S** | Mozgás előre / hátra |
 | **A, D** | Mozgás balra / jobbra |
-| **T, G** | Kamera emelése / süllyesztése |
+
 | **U, J** | Fényerő növelése / csökkentése |
 | **F1** | Súgó ablak ki/bekapcsolása |
 

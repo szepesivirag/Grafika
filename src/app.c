@@ -4,7 +4,6 @@
 #include "utils.h"
 
 #include <GL/gl.h>
-#include <GL/glu.h>
 #include <SDL2/SDL.h>
 #include <stdio.h>
 #include <math.h>
@@ -12,6 +11,23 @@
 double degree_to_radian(double degree)
 {
     return degree * M_PI / 180.0;
+}
+
+void set_perspective_matrix(double fov, double aspect, double z_near, double z_far)
+{
+    
+    double f = 1.0 / tan(degree_to_radian(fov) / 2.0);
+    double frustum_height = 2.0 * z_near / f;
+    double frustum_width = frustum_height * aspect;
+    
+    glFrustum(
+        -frustum_width / 2.0,
+        frustum_width / 2.0,
+        -frustum_height / 2.0,
+        frustum_height / 2.0,
+        z_near,
+        z_far
+    );
 }
 
 static void init_camera_and_scene(App* app)
@@ -96,7 +112,7 @@ void reshape(GLsizei width, GLsizei height)
     double z_near = 1.0;
     double z_far = 1000.0;
 
-    gluPerspective(fov, aspect, z_near, z_far);
+    set_perspective_matrix(fov, aspect, z_near, z_far);
 
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();

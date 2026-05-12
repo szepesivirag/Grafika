@@ -37,4 +37,15 @@ typedef struct Material
  */
 double degree_to_radian(double degree);
 
+/**
+ * Sets up a perspective projection matrix (native implementation, no GLU)
+ * Equivalent to gluPerspective.
+ * 
+ * fov: field of view in degrees
+ * aspect: aspect ratio (width / height)
+ * z_near: near clipping plane distance
+ * z_far: far clipping plane distance
+ */
+void set_perspective_matrix(double fov, double aspect, double z_near, double z_far);
+
 #endif /* UTILS_H */
