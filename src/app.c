@@ -5,6 +5,7 @@
 
 #include <GL/gl.h>
 #include <SDL2/SDL.h>
+#include <SDL2/SDL_image.h>
 #include <stdio.h>
 #include <math.h>
 
@@ -42,6 +43,12 @@ void init_app(App* app, int width, int height)
         fprintf(stderr, "SDL_Init error: %s\n", SDL_GetError());
         app->is_running = false;
         return;
+    }
+
+    if (IMG_Init(IMG_INIT_PNG) == 0) {
+        fprintf(stderr, "IMG_Init error: %s\n", IMG_GetError());
+        /* app->is_running = false;
+        return; */
     }
 
     SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 2);

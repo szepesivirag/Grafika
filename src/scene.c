@@ -14,42 +14,72 @@ static void draw_box(float x, float y, float z, float sx, float sy, float sz)
 
     glBegin(GL_QUADS);
 
-    glColor3f(0.55f, 0.30f, 0.18f);
+    glColor3f(1.0f, 1.0f, 1.0f);
 
+    /* Front*/
     glNormal3f(0.0f, 0.0f, 1.0f);
+    glTexCoord2f(0.0f, 0.0f);
     glVertex3f(x1, y1, z2);
+    glTexCoord2f(1.0f, 0.0f);
     glVertex3f(x2, y1, z2);
+    glTexCoord2f(1.0f, 1.0f);
     glVertex3f(x2, y2, z2);
+    glTexCoord2f(0.0f, 1.0f);
     glVertex3f(x1, y2, z2);
 
+    /* Back*/
     glNormal3f(0.0f, 0.0f, -1.0f);
+    glTexCoord2f(1.0f, 0.0f);
     glVertex3f(x2, y1, z1);
+    glTexCoord2f(0.0f, 0.0f);
     glVertex3f(x1, y1, z1);
+    glTexCoord2f(0.0f, 1.0f);
     glVertex3f(x1, y2, z1);
+    glTexCoord2f(1.0f, 1.0f);
     glVertex3f(x2, y2, z1);
 
+    /* Left */
     glNormal3f(-1.0f, 0.0f, 0.0f);
+    glTexCoord2f(1.0f, 0.0f);
     glVertex3f(x1, y1, z1);
+    glTexCoord2f(1.0f, 1.0f);
     glVertex3f(x1, y1, z2);
+    glTexCoord2f(0.0f, 1.0f);
     glVertex3f(x1, y2, z2);
+    glTexCoord2f(0.0f, 0.0f);
     glVertex3f(x1, y2, z1);
 
+    /* Right*/
     glNormal3f(1.0f, 0.0f, 0.0f);
+    glTexCoord2f(0.0f, 0.0f);
     glVertex3f(x2, y1, z2);
+    glTexCoord2f(0.0f, 1.0f);
     glVertex3f(x2, y1, z1);
+    glTexCoord2f(1.0f, 1.0f);
     glVertex3f(x2, y2, z1);
+    glTexCoord2f(1.0f, 0.0f);
     glVertex3f(x2, y2, z2);
 
+    /* Top */
     glNormal3f(0.0f, 1.0f, 0.0f);
+    glTexCoord2f(0.0f, 1.0f);
     glVertex3f(x1, y2, z2);
+    glTexCoord2f(1.0f, 1.0f);
     glVertex3f(x2, y2, z2);
+    glTexCoord2f(1.0f, 0.0f);
     glVertex3f(x2, y2, z1);
+    glTexCoord2f(0.0f, 0.0f);
     glVertex3f(x1, y2, z1);
 
+    /* Bottom */
     glNormal3f(0.0f, -1.0f, 0.0f);
+    glTexCoord2f(0.0f, 0.0f);
     glVertex3f(x1, y1, z1);
+    glTexCoord2f(1.0f, 0.0f);
     glVertex3f(x2, y1, z1);
+    glTexCoord2f(1.0f, 1.0f);
     glVertex3f(x2, y1, z2);
+    glTexCoord2f(0.0f, 1.0f);
     glVertex3f(x1, y1, z2);
 
     glEnd();
@@ -57,20 +87,19 @@ static void draw_box(float x, float y, float z, float sx, float sy, float sz)
 
 void init_scene(Scene* scene)
 {
-    scene->room.ground = load_texture("textures/floor.jpg");
+    /* scene->room.ground = load_texture("textures/floor.jpg");
     scene->room.left = load_texture("textures/left.jpg");
     scene->room.right = load_texture("textures/right.jpg");
     scene->room.front = load_texture("textures/front.jpg");
     scene->room.back = load_texture("textures/back.jpg");
-    scene->room.top = load_texture("textures/top.jpg");
+    scene->room.top = load_texture("textures/top.jpg"); */
 
-    scene->help_texture = load_texture("assets/help.bmp");
+    scene->help_texture = load_texture("assets/help.png");
+    scene->cube_texture = load_texture("assets/cube_texture.png");
     scene->ambient_light_level = 0.8f;
 
     scene->ambient_light_level = 0.5f;
     scene->cube_rotation_angle = 0.0f;
-
-
 }
 
 void set_lighting(const Scene* scene)
@@ -143,6 +172,8 @@ void render_scene(const Scene* scene)
     set_lighting(scene);
     draw_room(&(scene->room));
 
+
+    glBindTexture(GL_TEXTURE_2D, scene->cube_texture);
     glPushMatrix();
     glTranslatef(0.0f, -20.0f, 0.0f);
     glRotatef(scene->cube_rotation_angle, 0.0f, 1.0f, 0.0f);

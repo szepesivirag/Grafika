@@ -19,6 +19,7 @@ typedef struct Scene
 {
     Room room;
     GLuint help_texture;
+    GLuint cube_texture;
     float ambient_light_level;
     float cube_rotation_angle;
 } Scene;

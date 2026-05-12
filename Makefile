@@ -3,7 +3,7 @@ CXX = g++
 TARGET = Beadando.exe
 
 INCLUDES = -Iinclude -Ic_sdk_220203/include
-LIBS = -Lc_sdk_220203/lib -lmingw32 -lSDL2main -lSDL2 -lopengl32
+LIBS = -Lc_sdk_220203/lib -lmingw32 -lSDL2main -lSDL2 -lopengl32 -lSDL2_image
 
 C_SOURCES = src/main.c src/app.c src/camera.c src/scene.c src/texture.c
 
